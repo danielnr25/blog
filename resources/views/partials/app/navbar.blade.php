@@ -4,7 +4,7 @@
             <div class="flex flex-1 items-center sm:items-stretch sm:justify-start">
                 <div class="flex flex-shrink-0 items-center">
                     <a href="{{ url('/') }}" class="flex items-center">
-                        <img src="https://flowbite.com/docs/images/logo.svg" class="h-6 mr-3 sm:h-9" alt="Flowbite Logo" />
+                        <img src="img/github.png" class="h-6 mr-3 sm:h-9" alt="Logo" />
                         <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">Vudera</span>
                     </a>
                 </div>

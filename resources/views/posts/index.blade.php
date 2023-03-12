@@ -105,7 +105,7 @@
                                     text-overflow: ellipsis;"> {{ $post->body }}</span>
                                     </td>
                                     <td>
-                                        <img class="h-auto max-w-[70px]" src="/storage/{{ $post->image_url }}" alt="image description">
+                                        <img class="h-auto object-cover max-w-[60px]" src="/storage/{{ $post->image_url }}" alt="image description">
                                     </td>
                                     <td class="py-4 px-6">
                                         {{ $post->created_at }}

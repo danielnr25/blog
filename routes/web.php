@@ -1,8 +1,9 @@
 <?php
 
+use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-
+use App\Models\Post;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,10 +15,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+
+/* RUTAS PUBLICAS */
+
 Route::get('/', function () {
-    return view('welcome');
+    return view(
+        'welcome',
+        ["posts" => Post::where('active', true)->get()]
+    );
 });
 
+/* RUTAS PRIVADAS */
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -28,4 +36,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
+Route::post('/posts', [PostController::class, 'store'])->name('posts.store');
+Route::get('/posts/delete/{id}', [PostController::class, 'destroy'])->name('posts.delete');
+Route::get('/posts/{id}', [PostController::class, 'view'])->name('posts.view');
+
+
+require __DIR__ . '/auth.php';
